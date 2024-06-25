@@ -34,3 +34,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+<!--todo -->
+<!--todo 1. remove comments and  -->
+<!--todo 2. make function components server wherever possible -->
+<!--todo 2. add a navbar for signin -->
+<!--todo 4. connect to db and store user data -->
+<!--todo 4. find a way to make question easy -->
+<!--todo 5. add env variables to local file -->
+<!--todo 6. create function to run and submit -->
+
