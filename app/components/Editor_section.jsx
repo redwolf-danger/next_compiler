@@ -7,13 +7,13 @@ const Editor_section = ({handleEditorChange,comment,Language}) => {
   let monaco_ref = useRef(null);
   let editor_ref = useRef(null);
 
-  console.log("rendering editor again\n");
-  console.log("comment in editor is : ",comment);
-  console.log("lang in editor is ", Language);
+  // console.log("rendering editor again\n");
+  // console.log("comment in editor is : ",comment);
+  // console.log("lang in editor is ", Language);
 
   if(monaco_ref != null){
-    console.log("monaco ref is ",monaco_ref.current);
-    console.log("editor ref is ",editor_ref.current);
+    // console.log("monaco ref is ",monaco_ref.current);
+    // console.log("editor ref is ",editor_ref.current);
     (monaco_ref.current)?.editor.setModelLanguage(editor_ref.current.getModel(), Language);
     (monaco_ref.current)?.editor
   }
@@ -21,8 +21,11 @@ const Editor_section = ({handleEditorChange,comment,Language}) => {
   function handleEditorDidMount(editor,monaco){
     monaco_ref.current = monaco;
     editor_ref.current = editor;
-    console.log("added monaco and editor refernces!!!");
+    // console.log("added monaco and editor refernces!!!");
   }
+  //todo: opens
+  handleEditorChange(comment);
+  //todo: closes
 
  
 

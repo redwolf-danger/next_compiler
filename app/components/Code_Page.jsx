@@ -15,12 +15,12 @@ const Code_Page = () => {
           code_area: "",
         },
       });
-      console.log("rendering code_page")
+      // console.log("rendering code_page")
 
       const [lang_details,setlang_details] = useState({...pre_written_code["PYTHON3_8"]})
       
-      console.log("lang_details.lang is ", lang_details.lang);
-      console.log("lang_details.comment is ", lang_details.comment);
+      // console.log("lang_details.lang is ", lang_details.lang);
+      // console.log("lang_details.comment is ", lang_details.comment);
 
 
       const onsubmit = (data) => {
@@ -32,15 +32,16 @@ const Code_Page = () => {
       let props_for_select = { ...register("language") };
 
       const handleEditorChange = (value)=>{
-        console.log("setting the value to: ", value);
+        // console.log("setting the value to: ", value);
         setValue("code_area", value);
       }
       function lang_change(lang){
-        console.log('called lang_change from code_page with language ',lang);
-        console.log("changing lang_details from ", lang_details,"to");
-        console.log(pre_written_code[lang])
+        // console.log('called lang_change from code_page with language ',lang);
+        // console.log("changing lang_details from ", lang_details,"to");
+        // console.log(pre_written_code[lang])
         setlang_details({...pre_written_code[lang]})
       }
+      setValue("language","PYTHON3_8");
 
   return (
     <div style={{padding:"0px", backgroundColor:"whitesmoke"}}>

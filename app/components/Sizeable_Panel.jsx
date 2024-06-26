@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const Sizeable_Panel = ({ defaultDrawerWidth, height = 30 }) => {
   const [drawerWidth, setDrawerWidth] = useState(defaultDrawerWidth ?? 200);
-  console.log("drawer width is ", drawerWidth + "px");
+  // console.log("drawer width is ", drawerWidth + "px");
   const handlemousedown = () => {
     document.body.addEventListener("");
   };
@@ -22,7 +22,7 @@ const Sizeable_Panel = ({ defaultDrawerWidth, height = 30 }) => {
         // draggable
         draggable
         onDrag={() => {
-          console.log("dragging ....");
+          // console.log("dragging ....");
         }}
       ></div>
     </div>

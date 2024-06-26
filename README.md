@@ -36,11 +36,19 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 <!--todo -->
-<!--todo 1. remove comments and  -->
-<!--todo 2. make function components server wherever possible -->
+<!--!! todo 1. remove console.logs and  -->
+
+<!--!! todo 2. make function components server wherever possible -->
+
 <!--todo 2. add a navbar for signin -->
+
 <!--todo 4. connect to db and store user data -->
+
 <!--todo 4. find a way to make question easy -->
-<!--todo 5. add env variables to local file -->
+
+<!--!! todo 5. add env variables to local file -->
+<!-- added excepy pthon3_8 -->
+
 <!--todo 6. create function to run and submit -->
+
 

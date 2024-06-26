@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import styles from "./navbar.module.css"
+import { ClerkLoaded, ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 const inter = Inter({ subsets: ["latin"] });
+// import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +17,42 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body>
+          {/* <ClerkLoaded> */}
+          <header>
+            <nav className={styles.nav}>
+              <ul className={styles.ul}>
+            
+            <li>  
+            <ul className={styles.inside_ul}>
+            <li>Home</li>
+            <li>
+              {/* <Link href={"/editor"}> */}
+              Problems
+              {/* </Link> */}
+              </li>
+            </ul>
+            </li>
+
+            <li>
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            </li>
+            </ul>
+            </nav>
+          </header>
+          <main>
+            {children}
+          </main>
+          {/* </ClerkLoaded> */}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

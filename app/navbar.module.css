@@ -1,0 +1,12 @@
+.nav{
+    padding:5px;
+}
+.ul{
+    display:flex;
+
+    justify-content:space-around;
+  }
+.inside_ul{
+    display:flex;
+    gap: 10px;
+}

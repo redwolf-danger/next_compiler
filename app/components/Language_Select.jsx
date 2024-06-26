@@ -5,9 +5,6 @@ import FormControl from "@mui/material/FormControl";
 import Box from "@mui/material/Box";
 import { useRef, useState } from 'react';
 import langs from "../constants/langs";
-// import { ClickAwayListener } from "@mui/material";
-
-
 
 
 const Language_Select = ({props_for_select,lang_change}) => {
@@ -17,13 +14,13 @@ const Language_Select = ({props_for_select,lang_change}) => {
     // console.log(code_language);
 
     function handle_lang_change(event){
-        console.log("prev language is ", code_language)
-        console.log("setting language as ", event.target.value)
+        // console.log("prev language is ", code_language)
+        // console.log("setting language as ", event.target.value)
         set_code_language(()=>event.target.value)
         lang_change(event.target.value);
         // console.log('event is ', event)
       }
-    
+    // lang_change("PYTHON3_8")
   return (
     <Box >
       {/* sx={{height: 40}} */}
