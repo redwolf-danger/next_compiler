@@ -30,7 +30,7 @@ const Code_space = ({ submit_to_API }) => {
           <Panel minSize={30}
           defaultSize={60}>
             <div>
-              <Code_Page/>
+              <Code_Page submit_to_API={submit_to_API}/>
             </div>
           </Panel>
         </PanelGroup>

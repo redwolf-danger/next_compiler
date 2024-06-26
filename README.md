@@ -4,6 +4,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 First, run the development server:
 
+
 ```bash
 npm run dev
 # or
@@ -40,15 +41,93 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 <!--!! todo 2. make function components server wherever possible -->
 
-<!--todo 2. add a navbar for signin -->
+<!--!! 2. add a navbar for signin -->
+<!-- done but need customizing  -->
 
-<!--todo 4. connect to db and store user data -->
+<!--todo 4. connect to db and store user data PRIMARY-->
 
-<!--todo 4. find a way to make question easy -->
+<!--todo 4. find a way to make question easy SECONDARY-->
+
+<!-- step 1. provide user an interface to write problem statements uing word like editor which converts it into HTML -->
+<!-- step2: the user specifies function name input type and output type-->
+<!-- step 3: user clicks submit button and a server action is run which converts the data in json format  -->
+<!-- step 4: it also connects to database and stores the question in teh data base -->
+<!-- step 5: -->
 
 <!--!! todo 5. add env variables to local file -->
-<!-- added excepy pthon3_8 -->
-
+<!-- added except python3_8 -->
 <!--todo 6. create function to run and submit -->
+<!-- step1: on submit button clicking a popup below should open with loading sign  -->
+<!-- step2: when request answered then either show the error in the editor or show the accepted result logo -->
+<!-- OPTIONAL FEATURE: switch to code mirror to highlight a line on error -->
+<!-- step3: we also need a way for user to close the popup that opened -->
+<!-- step4: we also need to convert it into binary and download it all manually --> 
+        <!-- soln:just parse as text -->
+<!--!! step5: we also need a way to stop executing get results when result is obtained -->
+        <!-- done  -->
+<!-- step6: we need a way to highlight in the line where the error is and not reset the page -->
+
+<!-- todo 7. chnage theme of signin and editor page to black or grey -->
+<!-- todo 8. disable submit button for users that are not signed in -->
 
 
+ERROR CODE:
+<!-- code is  CODE_COMPILED
+----Final Show is ----
+: {
+  he_id: '44136cb1-c581-4f51-9442-134478e94a3c',
+  request_status: { code: 'CODE_COMPILED', message: 'Compilation step is over' },
+  status_update_url: 'https://api.hackerearth.com/v4/partner/code-evaluation/submissions/44136cb1-c581-4f51-9442-134478e94a3c/',
+  result: {
+    compile_status: '  File "solution.py3", line 1\n' +
+      '    this is a code for python\n' +
+      '              ^\n' +
+      'SyntaxError: invalid syntax\n' +
+      '\n',
+    run_status: {
+      output: null,
+      status: 'NA',
+      status_detail: null,
+      time_used: 0,
+      memory_used: 0
+    }
+  }
+} -->
+SUCCESS" CODE:
+<!-- : {
+  he_id: '19d32f89-146c-47f2-b34d-80085c0883de',
+  request_status: {
+    code: 'REQUEST_COMPLETED',
+    message: 'Your request has been completed successfully'
+  },
+  status_update_url: 'https://api.hackerearth.com/v4/partner/code-evaluation/submissions/19d32f89-146c-47f2-b34d-80085c0883de/',
+  result: {
+    compile_status: 'OK',
+    run_status: {
+      output: 'https://he-s3.s3.amazonaws.com/media/userdata/AnonymousUser/code/faada16',
+      status: 'AC',
+      status_detail: 'NA',
+      time_used: 0.0175,
+      memory_used: 2
+    }
+  }
+} -->
+
+Waiting code:
+<!-- : {
+  he_id: 'fb1dc997-85e7-4d87-800f-fa036e8bb04b',
+  request_status: { code: 'CODE_COMPILED', message: 'Compilation step is over' }, 
+  status_update_url: 'https://api.hackerearth.com/v4/partner/code-evaluation/submissions/fb1dc997-85e7-4d87-800f-fa036e8bb04b/',
+  result: {
+    compile_status: 'OK',
+    run_status: {
+      output: null,
+      status: 'NA',
+      status_detail: null,
+      time_used: 0,
+      memory_used: 0
+    }
+  }
+} -->
+//status detail : "NA" means accepted
+//result compile status for waiting or error

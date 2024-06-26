@@ -9,13 +9,13 @@ import pre_written_code from '../constants/template';
 import {useState} from 'react';
 
 
-const Code_Page = () => {
+const Code_Page = ({submit_to_API}) => {
     const { register, handleSubmit, setValue } = useForm({
         defaultValues: {
           code_area: "",
         },
       });
-      // console.log("rendering code_page")
+      console.log("rendering code_page")
 
       const [lang_details,setlang_details] = useState({...pre_written_code["PYTHON3_8"]})
       
@@ -26,7 +26,7 @@ const Code_Page = () => {
       const onsubmit = (data) => {
         console.log(data);
         console.log("calling submit_to API");
-        // submit_to_API(data.code_area);
+        submit_to_API(data.code_area,data.language);
       };
 
       let props_for_select = { ...register("language") };
@@ -59,12 +59,13 @@ const Code_Page = () => {
     <Button
           size="small"
           color="secondary"
+          type="submit"
           component="button"
           disableElevation
           variant="contained"
           onClick={(e) => {
             e.target.blur();
-            handleSubmit(onsubmit)();
+            // handleSubmit(onsubmit)();
           }}
         >
           Submit

@@ -16,7 +16,7 @@ const page = () => {
 
     return (<>
         <div>
-            <Code_space/>
+            <Code_space submit_to_API={handle}/>
         </div>
   
         <div style={{backgroundColor: "greenyellow"}}>

@@ -4,7 +4,7 @@ import "./globals.css";
 import styles from "./navbar.module.css"
 import { ClerkLoaded, ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 const inter = Inter({ subsets: ["latin"] });
-// import Link from "next/link";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,23 +20,29 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
-          {/* <ClerkLoaded> */}
+          
           <header>
             <nav className={styles.nav}>
               <ul className={styles.ul}>
-            
-            <li>  
-            <ul className={styles.inside_ul}>
-            <li>Home</li>
+            <ClerkLoaded>
             <li>
-              {/* <Link href={"/editor"}> */}
+            <ul className={styles.inside_ul}>
+            <li>
+              <Link href={"/"}>
+              Home
+              </Link>
+            </li>
+            <li>
+              <Link href={"/editor"}>
               Problems
-              {/* </Link> */}
+              </Link>
               </li>
             </ul>
             </li>
+            </ClerkLoaded>
 
             <li>
+              
             <SignedOut>
               <SignInButton />
             </SignedOut>
@@ -48,9 +54,11 @@ export default function RootLayout({
             </nav>
           </header>
           <main>
+            <ClerkLoaded>
             {children}
+            </ClerkLoaded>
           </main>
-          {/* </ClerkLoaded> */}
+          
         </body>
       </html>
     </ClerkProvider>

@@ -1,11 +1,20 @@
 "use server"
+
+import getresults from "./getresults";
+
 //todo: make it server functions
-export async function handle(passed) {
+export default async function handle(passed,lang) {
+    let response;
+    let GET_URL;
+    const CLIENT_SECRET = process.env.CLIENT_SECRET
+    const POST_URL = process.env.POST_URL
     console.log('button clicked\n');
     console.log("passed string is ", passed);
+    console.log("passed lang is ", lang);
+    console.log("post url is ", POST_URL);
     const data = {    
       'source': passed,
-      'lang': "PYTHON",
+      'lang': lang,
       'time_limit': 5,
       'memory_limit': 246323
     };
@@ -19,11 +28,14 @@ export async function handle(passed) {
         },
         body: JSON.stringify(data),
       });
+
       const result = await response.json();
       console.log("Success:", result);
       GET_URL = result.status_update_url;
       console.log('Get url is now ',GET_URL,"\n");
+      getresults(GET_URL);
     } catch (error) {
       console.error("Error:", error);
     }
+    
   }
