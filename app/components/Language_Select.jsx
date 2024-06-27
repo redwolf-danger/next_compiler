@@ -5,9 +5,9 @@ import FormControl from "@mui/material/FormControl";
 import Box from "@mui/material/Box";
 import { useRef, useState } from 'react';
 import langs from "../constants/langs";
+import { memo } from "react";
 
-
-const Language_Select = ({props_for_select,lang_change}) => {
+const Language_Select = memo(function Language_Select({props_for_select,lang_change}){
     let [code_language, set_code_language] = useState("PYTHON3_8");
     let sel = useRef(null);
 
@@ -60,6 +60,6 @@ const Language_Select = ({props_for_select,lang_change}) => {
     </FormControl>
   </Box>
   )
-}
+})
 
 export default Language_Select

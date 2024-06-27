@@ -1,5 +1,6 @@
 "use server"
 export default async function getresults(GET_URL){
+  return new Promise((resolve,reject)=>{
     const CLIENT_SECRET = process.env.CLIENT_SECRET
     console.log('button for results clicked\n');
     let headers = {
@@ -24,7 +25,7 @@ export default async function getresults(GET_URL){
       let {request_status:{code},result:{compile_status,run_status:{output}}}= final_show;
       console.log("code is ", code);
     
-      if(code === "REQUEST_COMPLETED" || compile_status !== "OK"){
+      if(code === "REQUEST_COMPLETED" || (compile_status !== "OK" && compile_status !== null)){
         clearInterval(clr_interval);
         executing = false;
         console.log("@@@@@@@@@@@@@ ----DONE----@@@@@@@@@@@@");
@@ -38,8 +39,10 @@ export default async function getresults(GET_URL){
           let data = await fetch(result_link);
           let res = await data.text();
           console.log("res is ",res);
+          return resolve({type:"Success",content:res})
         }else{
           console.log("error at ",compile_status);
+          return resolve({type:"Failure",content:compile_status}) 
         }
         // let data = await fetch();
         // let res = await data.text();
@@ -51,7 +54,7 @@ export default async function getresults(GET_URL){
       clearInterval(clr_interval);
       console.log("-!!!!!!Final Show Error is: ",error);
       console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-      
+      return resolve({type:"Failure",content:"Try Again some error occured"});
     } 
   }
 
@@ -60,6 +63,8 @@ export default async function getresults(GET_URL){
     if(executing){
     console.log("clearing interval");
     clearInterval(clr_interval);
+    resolve({type:"Failure",content:"Code took too much time"});
     }
-  }, 30000);
+  },30000);
+})
 }

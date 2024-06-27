@@ -1,12 +1,16 @@
 "use client"
 import Editor from "@monaco-editor/react";
 import { useRef } from "react";
-const defaultLanguage = "python";
+import { memo } from "react";
+import langs from "../constants/langs";
 
-const Editor_section = ({handleEditorChange,comment,Language}) => {
+
+
+const Editor_section = memo(function Editor_section({handleEditorChange,comment,Language}){
+  // const Editor_main_section = (handleEditorChange,comment,Language)=>{
   let monaco_ref = useRef(null);
   let editor_ref = useRef(null);
-
+  const defaultLanguage = "python";
   // console.log("rendering editor again\n");
   // console.log("comment in editor is : ",comment);
   // console.log("lang in editor is ", Language);
@@ -50,5 +54,7 @@ const Editor_section = ({handleEditorChange,comment,Language}) => {
   </div>
   )
 }
+)
+
 
 export default Editor_section

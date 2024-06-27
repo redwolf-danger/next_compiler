@@ -37,10 +37,8 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 <!--todo -->
-<!--!! todo 1. remove console.logs and  -->
-
+<!--  todo 1. remove console.logs and error logs  -->
 <!--!! todo 2. make function components server wherever possible -->
-
 <!--!! 2. add a navbar for signin -->
 <!-- done but need customizing  -->
 
@@ -65,10 +63,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
         <!-- soln:just parse as text -->
 <!--!! step5: we also need a way to stop executing get results when result is obtained -->
         <!-- done  -->
-<!-- step6: we need a way to highlight in the line where the error is and not reset the page -->
+<!-- step6: we need a way to highlight in the line where the error is and not reset the page SECONDARY-->
 
 <!-- todo 7. chnage theme of signin and editor page to black or grey -->
 <!-- todo 8. disable submit button for users that are not signed in -->
+<!-- todo 9: theme option: secondary -->
 
 
 ERROR CODE:

@@ -3,7 +3,8 @@
 import getresults from "./getresults";
 
 //todo: make it server functions
-export default async function handle(passed,lang) {
+export default async function handle(passed,lang){
+  return new Promise (async (resolve,reject)=>{
     let response;
     let GET_URL;
     const CLIENT_SECRET = process.env.CLIENT_SECRET
@@ -33,9 +34,15 @@ export default async function handle(passed,lang) {
       console.log("Success:", result);
       GET_URL = result.status_update_url;
       console.log('Get url is now ',GET_URL,"\n");
-      getresults(GET_URL);
+
+      // getresults(GET_URL);
+      let ans =  await getresults(GET_URL);
+      console.log("ans is ", ans);
+      return resolve(ans);
+
     } catch (error) {
       console.error("Error:", error);
+      return resolve({type:"Failure",content:"Try Again some error occure"})
     }
-    
-  }
+})
+}
