@@ -34,9 +34,9 @@ const Editor_section = memo(function Editor_section({handleEditorChange,comment,
  
 
   return (
-    <div style={{border:"1px solid grey",borderRight:"0px", borderRadius:"2px"}}>
+    <div style={{border:"1px solid grey",borderRight:"0px", borderRadius:"2px", height:"80vh"}}>
     <Editor
-      height="70vh"
+      height="80vh"
       defaultLanguage={defaultLanguage}
       language={Language}
       defaultValue={comment}

@@ -11,9 +11,9 @@ const Code_space = ({ submit_to_API }) => {
 
   return (
     <div>
-      <div style={{border: "2px solid" }}>
+      <div style={{border: "2px solid", height:"100%"}}>
         <PanelGroup direction="horizontal">
-          <Panel defaultSize={40} collapsible={true} minSize={20} style={{backgroundColor:"white"}}>
+          <Panel defaultSize={40} collapsible={true} minSize={20} style={{backgroundColor:"white",color:"black"}}>
             QUESTION
           </Panel>
           <PanelResizeHandle

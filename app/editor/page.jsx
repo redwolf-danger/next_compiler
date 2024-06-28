@@ -15,12 +15,8 @@ const page = () => {
     const POST_URL = process.env.POST_URL
 
     return (<>
-        <div>
+        <div className='out_codespace' style={{height:"100%"}}>
             <Code_space submit_to_API={handle}/>
-        </div>
-  
-        <div style={{backgroundColor: "greenyellow"}}>
-          <button onClick ={getresults}>Click me to get results </button>
         </div>
     </>
     )

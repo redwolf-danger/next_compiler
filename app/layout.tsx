@@ -20,7 +20,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
-          
+        {/* style={{height:"70vh"}} */}
           <header>
             <nav className={styles.nav}>
               <ul className={styles.ul}>
@@ -53,7 +53,8 @@ export default function RootLayout({
             </ul>
             </nav>
           </header>
-          <main>
+
+          <main className = "main_div" style={{height:"100%"}}>
             <ClerkLoaded>
             {children}
             </ClerkLoaded>

@@ -55,12 +55,14 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 <!--!! todo 5. add env variables to local file -->
 <!-- added except python3_8 -->
 <!--todo 6. create function to run and submit -->
+<!--todo 7. to fix the black space below body SECONDARY-->
+<!--todo 8: bring the boilerplate and function names -->
 <!-- step1: on submit button clicking a popup below should open with loading sign  -->
 <!-- step2: when request answered then either show the error in the editor or show the accepted result logo -->
 <!-- OPTIONAL FEATURE: switch to code mirror to highlight a line on error -->
-<!-- step3: we also need a way for user to close the popup that opened -->
-<!-- step4: we also need to convert it into binary and download it all manually --> 
-        <!-- soln:just parse as text -->
+<!--!! step3: we also need a way for user to close the popup that opened -->
+<!--!! step4: we also need to convert it into binary and download it all manually --> 
+        <!-- !!soln:just parse as text -->
 <!--!! step5: we also need a way to stop executing get results when result is obtained -->
         <!-- done  -->
 <!-- step6: we need a way to highlight in the line where the error is and not reset the page SECONDARY-->

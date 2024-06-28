@@ -9,7 +9,8 @@ import { useForm } from "react-hook-form";
 import pre_written_code from '../constants/template';
 import {useCallback, useRef, useState} from 'react';
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
-
+import { SignedIn,SignedOut } from '@clerk/nextjs';
+import BasicPopover from "./BasicPopover";
 const Code_Page = ({submit_to_API}) => {
       let ref = useRef(null);
 
@@ -37,11 +38,17 @@ const Code_Page = ({submit_to_API}) => {
 
       const onsubmit = async (data) => {
         console.log(data);
+        if(data.code_area == "" || data.code_area == null){
+          change_run_details({type:"FAILURE",content:"defined function wasn't found",state:50,res:true});
+          resize();
+        }
+        else{
         console.log("calling submit_to API");
         let final_ans = await submit_to_API(data.code_area,data.language);
         console.log("final ans is ", final_ans);
         change_run_details({type:final_ans.type,content:final_ans.content,state:50,res:true});
         resize();
+        }
       };
 
       let props_for_select = { ...register("language") };
@@ -81,6 +88,7 @@ const Code_Page = ({submit_to_API}) => {
     </Panel>
     {/* //todo */}
     <Box sx={{display: "flex", gap:"5px",padding:"5px"}}>
+      <SignedIn>
     <Button
           size="small"
           color="secondary"
@@ -90,6 +98,7 @@ const Code_Page = ({submit_to_API}) => {
           variant="contained"
           onClick={(e) => {
             e.target.blur();
+            
             // handleSubmit(onsubmit)();
           }}
         >
@@ -102,13 +111,28 @@ const Code_Page = ({submit_to_API}) => {
           variant="contained"
           onClick={(e) => {
             e.target.blur();
+            // e.preventDefault();
+
+            let panel = ref.current;
+            let size = panel.getSize();
+            console.log("######PANEL SIZE IS#######: ",size);
+            if(size == 0){
+              panel.resize(50);
+            }
+            else{
+              panel.resize(0);
+            }
+            
             //todo: do smething here
             // handleSubmit(onsubmit)();
           }}
         >
           Result
     </Button>
-
+    </SignedIn>
+    <SignedOut>
+      <BasicPopover/>
+    </SignedOut>
     </Box>
     
     </PanelGroup>
