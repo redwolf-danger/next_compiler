@@ -70,6 +70,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 <!-- todo 7. chnage theme of signin and editor page to black or grey -->
 <!-- todo 8. disable submit button for users that are not signed in -->
 <!-- todo 9: theme option: secondary -->
+<!-- todo 10. RESUBMITTING THE CODE :ISSUE :IMMEDIATE -->
 
 
 ERROR CODE:
