@@ -11,8 +11,14 @@ import {useCallback, useRef, useState} from 'react';
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import { SignedIn,SignedOut } from '@clerk/nextjs';
 import BasicPopover from "./BasicPopover";
+
+
+
+
+
 const Code_Page = ({submit_to_API}) => {
       let ref = useRef(null);
+      let language_prev = useRef("PYTHON3_8");
 
     const resize = useCallback(()=>{
       let panel = ref.current;
@@ -27,13 +33,14 @@ const Code_Page = ({submit_to_API}) => {
           code_area: "",
         },
       });
-      console.log("rendering code_page")
-
-      const [lang_details,setlang_details] = useState({...pre_written_code["PYTHON3_8"]})
+      console.log("^^^^^^^^^^^^^^^^^^rendering code_page^^^^^^^^^^^^^^^^^^^^^^^^^");
+      //todo starts
+      const [lang_details,setlang_details] = useState({...pre_written_code[language_prev.current]});
+      // const [lang_details,setlang_details] = useState({...pre_written_code["PYTHON3_8"]})
+      //todo: closes
       const [run_details, change_run_details] = useState({type:"NA",content:"RUN CODE FIRST TO SEE THE RESULTS",state:0,res:false}); 
       console.log("run details is :",run_details);
-      // console.log("lang_details.lang is ", lang_details.lang);
-      // console.log("lang_details.comment is ", lang_details.comment);
+
 
 
       const onsubmit = async (data) => {
@@ -59,14 +66,14 @@ const Code_Page = ({submit_to_API}) => {
       },[setValue])
 
       const lang_change = useCallback((lang)=>{
+        language_prev.current = lang;
         setlang_details({...pre_written_code[lang]})
       },[])
-      setValue("language","PYTHON3_8");
+      setValue("language",language_prev.current);
 
   return (
     <div style={{padding:"0px", backgroundColor:"whitesmoke"}}>
     <form onSubmit={handleSubmit(onsubmit)}>
-      
     <Box sx={{display: "flex", gap:"5px",padding:"5px", paddingLeft:"0px" }}>
     <Language_Select props_for_select={props_for_select} lang_change={lang_change}/>
     <Button size="small" variant="text" sx={{color:"#979797", textTransform: 'none',fontWeight:"200",'&:hover':{
@@ -80,7 +87,6 @@ const Code_Page = ({submit_to_API}) => {
     </Panel>
     <PanelResizeHandle/>
     {/* //todo */}
-    {console.log("default size is ",run_details.state)}
 
     <Panel ref={ref} defaultSize={run_details.state}>
       {/* remove max size window */}

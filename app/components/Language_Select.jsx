@@ -8,6 +8,7 @@ import langs from "../constants/langs";
 import { memo } from "react";
 
 const Language_Select = memo(function Language_Select({props_for_select,lang_change}){
+    console.log("%%%%%%%%%%%%%% Language Rerendering %%%%%%%%%%%%%%%%%%%%%%5")
     let [code_language, set_code_language] = useState("PYTHON3_8");
     let sel = useRef(null);
 

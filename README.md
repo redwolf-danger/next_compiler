@@ -67,11 +67,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
         <!-- done  -->
 <!-- step6: we need a way to highlight in the line where the error is and not reset the page SECONDARY-->
 
-<!-- todo 7. chnage theme of signin and editor page to black or grey -->
-<!-- todo 8. disable submit button for users that are not signed in -->
+<!-- todo 7. chnage theme of signin and editor page to black or grey:secondary -->
 <!-- todo 9: theme option: secondary -->
-<!-- todo 10. RESUBMITTING THE CODE :ISSUE :IMMEDIATE -->
 
+<!-- username : advaitasoni-->
+<!-- db:password jKqeQ6SI2N2mwCOv -->
 
 ERROR CODE:
 <!-- code is  CODE_COMPILED

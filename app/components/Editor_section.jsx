@@ -8,6 +8,7 @@ import langs from "../constants/langs";
 
 const Editor_section = memo(function Editor_section({handleEditorChange,comment,Language}){
   // const Editor_main_section = (handleEditorChange,comment,Language)=>{
+    console.log("@@@@@@@@@@@ EDITOR RERENDERING @@@@@@@@@@@@@@@@@@");
   let monaco_ref = useRef(null);
   let editor_ref = useRef(null);
   const defaultLanguage = "python";
