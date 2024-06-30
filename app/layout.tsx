@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import styles from "./navbar.module.css"
+import './navbar.css';
 import { ClerkLoaded, ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 const inter = Inter({ subsets: ["latin"] });
 import Link from "next/link";
+import ImageAvatars from './components/Avatar/Avatar';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,37 +21,30 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
-        {/* style={{height:"70vh"}} */}
           <header>
-            <nav className={styles.nav}>
-              <ul className={styles.ul}>
-            <ClerkLoaded>
-            <li>
-            <ul className={styles.inside_ul}>
-            <li>
-              <Link href={"/"}>
-              Home
-              </Link>
-            </li>
-            <li>
-              <Link href={"/editor"}>
-              Problems
-              </Link>
-              </li>
-            </ul>
-            </li>
-            </ClerkLoaded>
+            <nav className="navbar">
 
-            <li>
-              
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-            </li>
-            </ul>
+              <ul className="logo-section">
+                <li><ImageAvatars /></li>
+                <li>Orka</li>
+              </ul>
+
+              <ul className="items-section">
+                <ClerkLoaded>
+                  <li>
+                    <ul className="navbar-links">
+                      <li><Link href={"/"}>Home</Link></li>
+                      <li><Link href={"/editor"}>Problems</Link></li>
+                      <li>Compiler</li>
+                    </ul>
+                  </li>
+                </ClerkLoaded>
+
+                <li>
+                  <SignedOut><SignInButton /></SignedOut>
+                  <SignedIn><UserButton /></SignedIn>
+                </li>
+              </ul>
             </nav>
           </header>
 
@@ -65,3 +59,6 @@ export default function RootLayout({
     </ClerkProvider>
   );
 }
+
+
+
