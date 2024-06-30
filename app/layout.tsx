@@ -5,6 +5,7 @@ import './navbar.css';
 import { ClerkLoaded, ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 const inter = Inter({ subsets: ["latin"] });
 import Link from "next/link";
+import Navbar from "./components/Navbar/Navbar"
 import ImageAvatars from './components/Avatar/Avatar';
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export default function RootLayout({
       <html lang="en">
         <body>
           <header>
-            <nav className="navbar">
+            {/* <nav className="navbar">
 
               <ul className="logo-section">
                 <li><ImageAvatars /></li>
@@ -45,7 +46,8 @@ export default function RootLayout({
                   <SignedIn><UserButton /></SignedIn>
                 </li>
               </ul>
-            </nav>
+            </nav> */}
+            <Navbar/>
           </header>
 
           <main className = "main_div" style={{height:"100%"}}>
