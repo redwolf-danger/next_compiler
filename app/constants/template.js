@@ -1,22 +1,18 @@
 const pre_written_code={
-    // "CPP14":{
-    //     comment: "this is a code for cpp 14",
-    //     lang: "cpp"
-    // },
     "CPP17":{
-        comment: "this is a code for cpp 17",
+        comment: '#include <iostream> \n using namespace std;\n\nint main() {\ncout << "Hello, World!";\nreturn 0;\n}',
         lang: "cpp"
     },
     "TYPESCRIPT":{
-        comment:"this is a code for typescript",
+        comment:'console.log("Hello, World!")',
         lang:"typescript"
     },
     "SWIFT":{
-        comment:"this is a code for swift",
+        comment:'print("Hello, World!")',
         lang:"swift"
     },
     "SCALA":{
-        comment:"this is a code for scala",
+        comment:'object HelloWorld { \n def main(args: Array[String]): Unit = { \n println("Hello, World!")\n}\n}\n',
         lang:"scala"
     },
     "RUST":{
@@ -24,19 +20,19 @@ const pre_written_code={
         lang:"rust"
     },
     "RUBY":{
-        comment:"this is a code for ruby",
+        comment:'fn main() {\n println!("Hello, World!")\n;}\n',
         lang:"ruby"
     },
     "OBJECTIVEC":{
-        comment:"this is a code for objective-c",
+        comment:'#import <Foundation/Foundation.h>\n\nint main(int argc, const char * argv[]) {\n@autoreleasepool {\nprintf("Hello, World!");\n}\n return 0;\n}',
         lang:"objective-c"
     },
     "CLOJURE":{
-        comment:"this is a code for clojure",
+        comment:'(defn greetings [msg]\n(println (format "Hello, %s" msg)))\n\n(greetings "World!")\n',
         lang:"clojure"
     },
     "CSHARP":{
-        comment:"this is a code for csharp",
+        comment:'using System;\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text.RegularExpressions;\n\nnamespace HelloWorld\n{\n	public class Program\n	{\n		public static void Main(string[] args)/n		{/n			Console.WriteLine("Hello, World!");/n		}/n	}/n}/n',
         lang:"csharp"
     },
     "GO":{
