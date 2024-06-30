@@ -9,7 +9,6 @@ import HomeSection3 from './components/HomeSection3/HomeSection3'
 import HomeSection4 from './components/HomeSection4/HomeSection4';
 import Slider from './components/Slider/Slider'
 import Footer from './components/Footer/Footer';
-import FloatHeading from './components/FloatHeading/FloatHeading';
 
 
 export default function Home() {
@@ -31,7 +30,7 @@ export default function Home() {
       <HomeSection4 />
 
 
-      <FloatHeading />
+      
 
       
       <Footer />
