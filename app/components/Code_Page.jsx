@@ -7,7 +7,7 @@ import Editor_section from './Editor_section';
 import Result_section from "./Result_section" 
 import { useForm } from "react-hook-form";
 import pre_written_code from '../constants/template';
-import {useCallback, useRef, useState} from 'react';
+import { useCallback, useRef, useState} from 'react';
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import { SignedIn,SignedOut } from '@clerk/nextjs';
 import BasicPopover from "./BasicPopover";
@@ -16,9 +16,10 @@ import BasicPopover from "./BasicPopover";
 
 
 
-const Code_Page = ({submit_to_API}) => {
+const Code_Page = ({submit_to_API,test_cases}) => {
       let ref = useRef(null);
       let language_prev = useRef("PYTHON3_8");
+      const [TestCases,setTestCases] = useState(test_cases);
 
     const resize = useCallback(()=>{
       let panel = ref.current;
@@ -90,7 +91,7 @@ const Code_Page = ({submit_to_API}) => {
 
     <Panel ref={ref} defaultSize={run_details.state}>
       {/* remove max size window */}
-      <Result_section type={run_details.type} result={run_details.content} res = {run_details.res}/>
+      <Result_section type={run_details.type} result={run_details.content} res = {run_details.res} set_test_cases = {setTestCases} test_cases={TestCases}/>
     </Panel>
     {/* //todo */}
     <Box sx={{display: "flex", gap:"5px",padding:"5px"}}>

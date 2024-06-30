@@ -3,12 +3,13 @@ import { useEffect, useState } from "react";
 import Button from '@mui/material/Button';
 
 
-const Result_section = ({result,type,res}) => {
+const Result_section = ({result,type,res,setTestCases,TestCases}) => {
   const [result_open,set_result_open] = useState(res);
   useEffect(() => {
     console.log("processing res");
     set_result_open(res);
   }, [res])
+
   
   
   console.log("rerendering result section");
@@ -54,7 +55,11 @@ const Result_section = ({result,type,res}) => {
     </div>
     <div style={{padding:"5px",height:"100%"}}>
     {result_open && <>{result}</>}
-    {!result_open && <>test_case_page</>}
+    {!result_open && <>
+    test_case_page
+    {/* <input type="text" /> */}
+    {/* height="100px" width="200px" */}
+    </>}
     </div>
   </div>
   )

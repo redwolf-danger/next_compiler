@@ -6,7 +6,7 @@ import Code_Page from "./Code_Page";
 import Blank from "./DOT";
 import { useRef } from "react";
 
-const Code_space = ({ submit_to_API }) => {
+const Code_space = ({ submit_to_API,question_details:{question = (<div>QUESTION</div>),test_cases =[]}}) => {
   const panel_div = useRef();
 
   return (
@@ -14,7 +14,8 @@ const Code_space = ({ submit_to_API }) => {
       <div style={{border: "2px solid", height:"100%"}}>
         <PanelGroup direction="horizontal">
           <Panel defaultSize={40} collapsible={true} minSize={20} style={{backgroundColor:"white",color:"black"}}>
-            QUESTION
+            {/* //todo: question rendered here */}
+            {question}
           </Panel>
           <PanelResizeHandle
             onDragging={(dragging)=>{
@@ -30,7 +31,8 @@ const Code_space = ({ submit_to_API }) => {
           <Panel minSize={30}
           defaultSize={60}>
             <div>
-              <Code_Page submit_to_API={submit_to_API}/>
+              {/* //todo: submit test_details here */}
+              <Code_Page submit_to_API={submit_to_API} test_cases = {test_cases}/>
             </div>
           </Panel>
         </PanelGroup>
