@@ -1,8 +1,10 @@
 import './HomeSection1.css';
+import FloatHeading from '../FloatHeading/FloatHeading';
 
 
 function HomeSection1() {
     return(
+      <>
         <div className='page-headers sticky'>
         <div className='header-img'>
           <img src='/image-header-1.png'/>
@@ -13,6 +15,8 @@ function HomeSection1() {
           <div className='page-subheading-main'>Next-Generation Compiler</div>
         </div>
       </div>
+      <FloatHeading />
+      </>
     )
 }
 

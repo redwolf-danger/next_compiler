@@ -6,15 +6,16 @@ import Code_Page from "./Code_Page";
 import Blank from "./DOT";
 import { useRef } from "react";
 
-const Code_space = ({ submit_to_API }) => {
+const Code_space = ({q_id,submit_to_API,question_details:{question_desc = (<div>QUESTION here ayega</div>),input_stream,output_stream,test_cases_display=<div>test cases ot be displayed here</div>},editor}) => {
   const panel_div = useRef();
-
   return (
-    <div>
+    <>
+    {!editor && (<div>
       <div style={{border: "2px solid", height:"100%"}}>
         <PanelGroup direction="horizontal">
           <Panel defaultSize={40} collapsible={true} minSize={20} style={{backgroundColor:"white",color:"black"}}>
-            QUESTION
+            {/* //todo: question rendered here */}
+            {question_desc}
           </Panel>
           <PanelResizeHandle
             onDragging={(dragging)=>{
@@ -30,12 +31,15 @@ const Code_space = ({ submit_to_API }) => {
           <Panel minSize={30}
           defaultSize={60}>
             <div>
-              <Code_Page submit_to_API={submit_to_API}/>
+              {/* //todo: submit test_details here */}
+              <Code_Page q_id={q_id} submit_to_API={submit_to_API} input_stream={input_stream} output_stream={output_stream} test_cases_display={test_cases_display} editor={editor}/>
             </div>
           </Panel>
         </PanelGroup>
       </div>
-    </div>
+    </div>)}
+    {editor && <Code_Page q_id={10000} submit_to_API={submit_to_API} test_cases_display = {test_cases_display} editor={editor}/>}
+    </>
   );
 
 };

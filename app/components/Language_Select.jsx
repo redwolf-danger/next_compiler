@@ -3,16 +3,16 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
 import Box from "@mui/material/Box";
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import langs from "../constants/langs";
 import { memo } from "react";
 
-const Language_Select = memo(function Language_Select({props_for_select,lang_change}){
+const Language_Select = memo(function Language_Select({q_id,props_for_select,lang_change}){
     console.log("%%%%%%%%%%%%%% Language Rerendering %%%%%%%%%%%%%%%%%%%%%%5")
-    let [code_language, set_code_language] = useState("PYTHON3_8");
+    console.log("new language is ",localStorage.getItem(`${q_id}_lang`) || "PYTHON3_8");
+    let [code_language, set_code_language] = useState( localStorage.getItem(`${q_id}_lang`) || "PYTHON3_8");
     let sel = useRef(null);
-
-    // console.log(code_language);
+    // console.log(code_language;
 
     function handle_lang_change(event){
         // console.log("prev language is ", code_language)
@@ -21,6 +21,12 @@ const Language_Select = memo(function Language_Select({props_for_select,lang_cha
         lang_change(event.target.value);
         // console.log('event is ', event)
       }
+      useEffect(() => {
+        console.log("changin language to ",localStorage.getItem(`${q_id}_lang`) || "PYTHON3_8");
+        set_code_language(localStorage.getItem(`${q_id}_lang`) || "PYTHON3_8");
+        lang_change(localStorage.getItem(`${q_id}_lang`) || "PYTHON3_8");
+      }, [])
+      
     // lang_change("PYTHON3_8")
   return (
     <Box >

@@ -1,14 +1,54 @@
 "use client"
 import { useEffect, useState } from "react";
 import Button from '@mui/material/Button';
+import { TextareaAutosize as BaseTextareaAutosize } from '@mui/base/TextareaAutosize';
+
+const Result_section = ({result,type,res,test_cases_display}) => {
+  //todo modify test cases starts
+
+/*Object.keys(value.input).map((input_key)=>{
+          return value.input[input_key]
+      }) */
+
+ 
+  // let display_length = <>
+  // <div>
+  //   {test_cases.length}
+  // </div>
+  // </>
 
 
-const Result_section = ({result,type,res}) => {
+  //todo: we will import the displayed test cases from the question itself in the future along with the input stream and the output stream
+  // let display_test = 
+  // test_cases.length == 0 ? (<>NO TEST CASES</>) : (<>
+  // <div style={{backgroundColor:"whitesmoke", padding:"5"}}>
+  // {test_cases[0].len}
+  // </div>
+  // <div className="inputs_holder">
+  //   <>
+  //     <div style={{backgroundColor:"white", padding:"5"}}>    
+  //       {test_cases[0].input}
+  //     </div>
+  //     <div style={{backgroundColor:"whitesmoke", padding:"5"}}>
+  //       {test_cases[0].output}
+  //     </div>
+  //     </>
+  // </div>
+  // </>)
+      //inputs in white and ouput sin whitesmoke
+
+
+
+
+
+  
+  //todo modify test cases ends
   const [result_open,set_result_open] = useState(res);
   useEffect(() => {
     console.log("processing res");
     set_result_open(res);
   }, [res])
+
   
   
   console.log("rerendering result section");
@@ -54,7 +94,19 @@ const Result_section = ({result,type,res}) => {
     </div>
     <div style={{padding:"5px",height:"100%"}}>
     {result_open && <>{result}</>}
-    {!result_open && <>test_case_page</>}
+    {!result_open && <>
+
+    {/* test_case_page */}
+    {/* //todo starts */}
+    {/* <BaseTextareaAutosize minRows={6}  maxRows={6} placeholder="Maximum 4 rows" defaultValue={"write your tests here"}/>
+     */}
+     {test_cases_display}
+     {/* <textarea {...props_for_tests} style={{height:"100%",width:"100%",resize:"none"}} onClick={(e)=>{}} placeholder="WRITE YOUR TESTS HERE" value = {display_test}/> */}
+      {/* //todo: test_cases->display_test */}
+    {/* //todo ends */}
+    
+    
+    </>}
     </div>
   </div>
   )

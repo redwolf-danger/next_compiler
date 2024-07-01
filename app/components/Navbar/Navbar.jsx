@@ -61,8 +61,8 @@ const Navbar = () => {
             <li>
               <ul className="navbar-links">
                 <li><Link href={"/"}>Home</Link></li>
-                <li><Link href={"/editor"}>Problems</Link></li>
-                <li>Compiler</li>
+                <li><Link href={"/problems"}>Problems</Link></li>
+                <li><Link href={"/editor"}>Compiler</Link></li>
               </ul>
             </li>
           </ClerkLoaded>

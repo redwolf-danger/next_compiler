@@ -2,8 +2,13 @@
     font-size: 10vw;
     letter-spacing: 4vw;
     color: #071952;
-    position: absolute;
-    top: 80vh;
-    left: -3%;
+    width: 100vw;
+    /* position: absolute; */
+    /* top: 80vh;
+    left: -1px; */
+    padding-left: 10px;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
     opacity: 0.2;
 }
