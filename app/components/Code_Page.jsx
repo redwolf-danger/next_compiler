@@ -19,7 +19,7 @@ import BasicPopover from "./BasicPopover";
 const Code_Page = ({submit_to_API,test_cases}) => {
       let ref = useRef(null);
       let language_prev = useRef("PYTHON3_8");
-      const [TestCases,setTestCases] = useState(test_cases);
+     
 
     const resize = useCallback(()=>{
       let panel = ref.current;
@@ -29,7 +29,7 @@ const Code_Page = ({submit_to_API,test_cases}) => {
     },[ref]);
     
 
-    const { register, handleSubmit, setValue } = useForm({
+    const { register, handleSubmit, setValue,} = useForm({
         defaultValues: {
           code_area: "",
         },
@@ -60,7 +60,6 @@ const Code_Page = ({submit_to_API,test_cases}) => {
       };
 
       let props_for_select = { ...register("language") };
-
       const handleEditorChange = useCallback((value)=>{
         // console.log("setting the value to: ", value);
         setValue("code_area", value);
@@ -91,7 +90,7 @@ const Code_Page = ({submit_to_API,test_cases}) => {
 
     <Panel ref={ref} defaultSize={run_details.state}>
       {/* remove max size window */}
-      <Result_section type={run_details.type} result={run_details.content} res = {run_details.res} set_test_cases = {setTestCases} test_cases={TestCases}/>
+      <Result_section type={run_details.type} result={run_details.content} res = {run_details.res} test_cases={test_cases} />
     </Panel>
     {/* //todo */}
     <Box sx={{display: "flex", gap:"5px",padding:"5px"}}>
