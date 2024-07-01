@@ -18,8 +18,8 @@ const Result_section = ({result,type,res,test_cases}) => {
   // </>
 
 
-  let display_test =
-  <>
+  let display_test = 
+  test_cases.length == 0 ? (<>NO TEST CASES</>) : (<>
   <div style={{backgroundColor:"whitesmoke", padding:"5"}}>
   {test_cases.length}
   </div>
@@ -38,7 +38,7 @@ const Result_section = ({result,type,res,test_cases}) => {
     })
   }
   </div>
-  </>
+  </>)
       //inputs in white and ouput sin whitesmoke
 
 

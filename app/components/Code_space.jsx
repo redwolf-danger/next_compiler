@@ -6,12 +6,12 @@ import Code_Page from "./Code_Page";
 import Blank from "./DOT";
 import { useRef } from "react";
 
-const Code_space = ({ submit_to_API,question_details:{question = (<div>QUESTION</div>),test_cases = [{input:"1 2",output:"3"}] ,editor}}) => {
+const Code_space = ({ submit_to_API,question_details:{question = (<div>QUESTION</div>),test_cases = []},editor}) => {
   const panel_div = useRef();
 
   return (
     <>
-    {editor && (<div>
+    {!editor && (<div>
       <div style={{border: "2px solid", height:"100%"}}>
         <PanelGroup direction="horizontal">
           <Panel defaultSize={40} collapsible={true} minSize={20} style={{backgroundColor:"white",color:"black"}}>
@@ -39,7 +39,7 @@ const Code_space = ({ submit_to_API,question_details:{question = (<div>QUESTION<
         </PanelGroup>
       </div>
     </div>)}
-    {!editor && <Code_Page submit_to_API={submit_to_API} test_cases = {test_cases}/>}
+    {editor && <Code_Page submit_to_API={submit_to_API} test_cases = {test_cases}/>}
     </>
   );
 

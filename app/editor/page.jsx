@@ -8,6 +8,7 @@ import Code_space from "../components/Code_space"
 import handle from "../libs/handle"
 
 const page = () => {
+    //must remanin empty
     let question_details = {};
     return (<>
         <div className='out_codespace' style={{height:"100%"}}>
