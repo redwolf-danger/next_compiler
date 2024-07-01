@@ -11,10 +11,12 @@ const page = ({params}) => {
     console.log("params.id is ",params.id);
     console.log("question_details is ", question_list)
     let question_details = question_list[`${params.id}`];
+
+
     //todo ends
     return (<>
         <div className='out_codespace' style={{height:"100%"}}>
-            <Code_space submit_to_API={handle} question_details={question_details} editor={false}/>
+            <Code_space submit_to_API={handle} question_details={question_details} q_id ={params.id} editor={false}/>
         </div>
     </>
     )

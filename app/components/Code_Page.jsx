@@ -16,9 +16,11 @@ import BasicPopover from "./BasicPopover";
 
 
 
-const Code_Page = ({submit_to_API,input_stream,output_stream,test_cases_display,editor}) => {
+const Code_Page = ({q_id,submit_to_API,input_stream,output_stream,test_cases_display,editor}) => {
+  let l = localStorage.getItem(`${q_id}_lang`);
+  console.log("data from local storage is ",l,localStorage.getItem(`${q_id}_code_with_${l}`));
       let ref = useRef(null);
-      let language_prev = useRef("PYTHON3_8");
+      let language_prev = useRef(localStorage.getItem(`${q_id}_lang`) || "PYTHON3_8");
      
 
     const resize = useCallback(()=>{
@@ -35,7 +37,7 @@ const Code_Page = ({submit_to_API,input_stream,output_stream,test_cases_display,
         },
       });
       console.log("^^^^^^^^^^^^^^^^^^rendering code_page^^^^^^^^^^^^^^^^^^^^^^^^^");
-
+      console.log("language is ",localStorage.getItem(`${q_id}_lang`) || "PYTHON3_8");
       const [lang_details,setlang_details] = useState({...pre_written_code[language_prev.current]});
       // const [lang_details,setlang_details] = useState({...pre_written_code["PYTHON3_8"]})
   
@@ -46,6 +48,12 @@ const Code_Page = ({submit_to_API,input_stream,output_stream,test_cases_display,
 
       const onsubmit = async (data) => {
         console.log(data);
+
+        localStorage.setItem(`${q_id}_lang`,data.language)
+        localStorage.setItem(`${q_id}_code_with_${data.language}`,data.code_area);
+        let status = localStorage.getItem(`${q_id}_status`)
+        localStorage.setItem(`${q_id}_status`,(status) ? Math.max(1,status): 1)
+        
         if(data.code_area == "" || data.code_area == null){
           change_run_details({type:"FAILURE",content:"code space is empty",state:50,res:true});
           resize();
@@ -58,6 +66,7 @@ const Code_Page = ({submit_to_API,input_stream,output_stream,test_cases_display,
 
         if(!editor){
         //!!problems section
+        
         if(final_ans.type == "Failure"){
           change_run_details({type:"Failure",content:final_ans.content,state:50,res:true});
         }
@@ -67,6 +76,8 @@ const Code_Page = ({submit_to_API,input_stream,output_stream,test_cases_display,
 
           if(final_ans.type != "Failure" && f1 === o1){
           change_run_details({type:final_ans.type,content:"success all test cases passed",state:50,res:true});
+          status = localStorage.getItem(`${q_id}_status`)
+          localStorage.setItem(`${q_id}_status`,(status) ? Math.max(1,status): 1)
           }
           else{
           change_run_details({type:"Failure",content:"test_case_failed expected "+output_stream+" got "+final_ans.content,state:50,res:true});
@@ -102,7 +113,7 @@ const Code_Page = ({submit_to_API,input_stream,output_stream,test_cases_display,
     <div style={{padding:"0px", backgroundColor:"whitesmoke"}}>
     <form onSubmit={handleSubmit(onsubmit)}>
     <Box sx={{display: "flex", gap:"5px",padding:"5px", paddingLeft:"0px" }}>
-    <Language_Select props_for_select={props_for_select} lang_change={lang_change}/>
+    <Language_Select q_id={q_id} props_for_select={props_for_select} lang_change={lang_change}/>
     <Button size="small" variant="text" sx={{color:"#979797", textTransform: 'none',fontWeight:"200",'&:hover':{
         backgroundColor:"#f1f1f1" 
     }}}>Autocomplete</Button>
@@ -110,7 +121,7 @@ const Code_Page = ({submit_to_API,input_stream,output_stream,test_cases_display,
 
     <PanelGroup direction='vertical' style={{height:"80vh"}}>
     <Panel defaultSize={100}>
-   <Editor_section handleEditorChange={handleEditorChange} comment={lang_details.comment} Language={lang_details.lang}/>
+   <Editor_section handleEditorChange={handleEditorChange} comment={localStorage.getItem(`${q_id}_code_with_${language_prev.current}`) || lang_details.comment} Language={lang_details.lang}/>
     </Panel>
     <PanelResizeHandle/>
     

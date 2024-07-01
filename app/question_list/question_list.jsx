@@ -3,6 +3,8 @@ export const question_list = {
         title:" Add two Numbers",
         status: 0,
         //0 for not done 1 for attempted and 2 for solved
+        // always access it with local storage like 
+        // Math.max(question_list[q_id].status,localStorage.getItem(`${q_id}_status`))
         question_desc:(<div>
             <div>1. Add Two Numbers</div>
             <hr/>

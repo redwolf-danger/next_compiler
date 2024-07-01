@@ -2,7 +2,6 @@
 import Editor from "@monaco-editor/react";
 import { useRef } from "react";
 import { memo } from "react";
-import langs from "../constants/langs";
 
 
 

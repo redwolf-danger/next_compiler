@@ -6,7 +6,7 @@ import Code_Page from "./Code_Page";
 import Blank from "./DOT";
 import { useRef } from "react";
 
-const Code_space = ({ submit_to_API,question_details:{question_desc = (<div>QUESTION here ayega</div>),input_stream,output_stream,test_cases_display=<div>test cases ot be displayed here</div>},editor}) => {
+const Code_space = ({q_id,submit_to_API,question_details:{question_desc = (<div>QUESTION here ayega</div>),input_stream,output_stream,test_cases_display=<div>test cases ot be displayed here</div>},editor}) => {
   const panel_div = useRef();
   return (
     <>
@@ -32,13 +32,13 @@ const Code_space = ({ submit_to_API,question_details:{question_desc = (<div>QUES
           defaultSize={60}>
             <div>
               {/* //todo: submit test_details here */}
-              <Code_Page submit_to_API={submit_to_API} input_stream={input_stream} output_stream={output_stream} test_cases_display={test_cases_display} editor={editor}/>
+              <Code_Page q_id={q_id} submit_to_API={submit_to_API} input_stream={input_stream} output_stream={output_stream} test_cases_display={test_cases_display} editor={editor}/>
             </div>
           </Panel>
         </PanelGroup>
       </div>
     </div>)}
-    {editor && <Code_Page submit_to_API={submit_to_API} test_cases = {test_cases} editor={editor}/>}
+    {editor && <Code_Page q_id={10000} submit_to_API={submit_to_API} test_cases_display = {test_cases_display} editor={editor}/>}
     </>
   );
 
