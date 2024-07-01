@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Button from '@mui/material/Button';
 import { TextareaAutosize as BaseTextareaAutosize } from '@mui/base/TextareaAutosize';
 
-const Result_section = ({result,type,res,test_cases}) => {
+const Result_section = ({result,type,res,test_cases_display}) => {
   //todo modify test cases starts
 
 /*Object.keys(value.input).map((input_key)=>{
@@ -18,34 +18,30 @@ const Result_section = ({result,type,res,test_cases}) => {
   // </>
 
 
-  let display_test = 
-  test_cases.length == 0 ? (<>NO TEST CASES</>) : (<>
-  <div style={{backgroundColor:"whitesmoke", padding:"5"}}>
-  {test_cases.length}
-  </div>
-  <div className="inputs_holder">
-  {
-    test_cases.map((value)=>{
-      return (<>
-      <div style={{backgroundColor:"white", padding:"5"}}>
-        
-        {value.input}
-      </div>
-      <div style={{backgroundColor:"whitesmoke", padding:"5"}}>
-        {value.output}
-      </div>
-      </>)
-    })
-  }
-  </div>
-  </>)
+  //todo: we will import the displayed test cases from the question itself in the future along with the input stream and the output stream
+  // let display_test = 
+  // test_cases.length == 0 ? (<>NO TEST CASES</>) : (<>
+  // <div style={{backgroundColor:"whitesmoke", padding:"5"}}>
+  // {test_cases[0].len}
+  // </div>
+  // <div className="inputs_holder">
+  //   <>
+  //     <div style={{backgroundColor:"white", padding:"5"}}>    
+  //       {test_cases[0].input}
+  //     </div>
+  //     <div style={{backgroundColor:"whitesmoke", padding:"5"}}>
+  //       {test_cases[0].output}
+  //     </div>
+  //     </>
+  // </div>
+  // </>)
       //inputs in white and ouput sin whitesmoke
 
 
 
 
 
-  console.log("########## display_object is : ",display_test);
+  
   //todo modify test cases ends
   const [result_open,set_result_open] = useState(res);
   useEffect(() => {
@@ -104,7 +100,7 @@ const Result_section = ({result,type,res,test_cases}) => {
     {/* //todo starts */}
     {/* <BaseTextareaAutosize minRows={6}  maxRows={6} placeholder="Maximum 4 rows" defaultValue={"write your tests here"}/>
      */}
-     {display_test}
+     {test_cases_display}
      {/* <textarea {...props_for_tests} style={{height:"100%",width:"100%",resize:"none"}} onClick={(e)=>{}} placeholder="WRITE YOUR TESTS HERE" value = {display_test}/> */}
       {/* //todo: test_cases->display_test */}
     {/* //todo ends */}

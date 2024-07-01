@@ -3,7 +3,7 @@
 import getresults from "./getresults";
 
 //todo: make it server functions
-export default async function handle(passed,lang){
+export default async function handle(passed,lang,input=""){
   return new Promise (async (resolve,reject)=>{
     let response;
     let GET_URL;
@@ -16,6 +16,7 @@ export default async function handle(passed,lang){
     const data = {    
       'source': passed,
       'lang': lang,
+      'input':input,
       'time_limit': 5,
       'memory_limit': 246323
     };

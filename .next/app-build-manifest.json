@@ -12,17 +12,27 @@
       "static/css/app/page.css",
       "static/chunks/app/page.js"
     ],
-    "/problems/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/problems/page.css",
-      "static/chunks/app/problems/page.js"
-    ],
     "/editor/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/editor/page.css",
       "static/chunks/app/editor/page.js"
+    ],
+    "/problems/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/problems/page.js"
+    ],
+    "/problems/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/problems/[id]/page.css",
+      "static/chunks/app/problems/[id]/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

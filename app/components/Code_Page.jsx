@@ -16,7 +16,7 @@ import BasicPopover from "./BasicPopover";
 
 
 
-const Code_Page = ({submit_to_API,test_cases}) => {
+const Code_Page = ({submit_to_API,input_stream,output_stream,test_cases_display,editor}) => {
       let ref = useRef(null);
       let language_prev = useRef("PYTHON3_8");
      
@@ -35,10 +35,10 @@ const Code_Page = ({submit_to_API,test_cases}) => {
         },
       });
       console.log("^^^^^^^^^^^^^^^^^^rendering code_page^^^^^^^^^^^^^^^^^^^^^^^^^");
-      //todo starts
+
       const [lang_details,setlang_details] = useState({...pre_written_code[language_prev.current]});
       // const [lang_details,setlang_details] = useState({...pre_written_code["PYTHON3_8"]})
-      //todo: closes
+  
       const [run_details, change_run_details] = useState({type:"NA",content:"RUN CODE FIRST TO SEE THE RESULTS",state:0,res:false}); 
       console.log("run details is :",run_details);
 
@@ -47,19 +47,46 @@ const Code_Page = ({submit_to_API,test_cases}) => {
       const onsubmit = async (data) => {
         console.log(data);
         if(data.code_area == "" || data.code_area == null){
-          change_run_details({type:"FAILURE",content:"defined function wasn't found",state:50,res:true});
+          change_run_details({type:"FAILURE",content:"code space is empty",state:50,res:true});
           resize();
         }
         else{
         console.log("calling submit_to API");
-        let final_ans = await submit_to_API(data.code_area,data.language);
+        let final_ans = await submit_to_API(data.code_area,data.language,data.input);
         console.log("final ans is ", final_ans);
-        change_run_details({type:final_ans.type,content:final_ans.content,state:50,res:true});
+        //todo:starts
+
+        if(!editor){
+        //!!problems section
+        if(final_ans.type == "Failure"){
+          change_run_details({type:"Failure",content:final_ans.content,state:50,res:true});
+        }
+        else{
+          let f1 = final_ans.content.replace(/\s/g, '');
+          let o1 = output_stream.replace(/\s/g, '');
+
+          if(final_ans.type != "Failure" && f1 === o1){
+          change_run_details({type:final_ans.type,content:"success all test cases passed",state:50,res:true});
+          }
+          else{
+          change_run_details({type:"Failure",content:"test_case_failed expected "+output_stream+" got "+final_ans.content,state:50,res:true});
+          }
+        }
+        }
+        else{
+          //!!editor section
+          change_run_details({type:final_ans.type,content:final_ans.content,state:50,res:true});
+        }
+        //todo: ends
         resize();
         }
       };
 
-      let props_for_select = { ...register("language") };
+      let props_for_select = { ...register("language")};
+      //todo:starts
+      let props_for_input = { ...register("input")};
+      setValue("input",input_stream);
+      //todo: ends
       const handleEditorChange = useCallback((value)=>{
         // console.log("setting the value to: ", value);
         setValue("code_area", value);
@@ -86,13 +113,13 @@ const Code_Page = ({submit_to_API,test_cases}) => {
    <Editor_section handleEditorChange={handleEditorChange} comment={lang_details.comment} Language={lang_details.lang}/>
     </Panel>
     <PanelResizeHandle/>
-    {/* //todo */}
+    
 
     <Panel ref={ref} defaultSize={run_details.state}>
       {/* remove max size window */}
-      <Result_section type={run_details.type} result={run_details.content} res = {run_details.res} test_cases={test_cases} />
+      <Result_section type={run_details.type} result={run_details.content} res={run_details.res} test_cases_display={test_cases_display} />
     </Panel>
-    {/* //todo */}
+   
     <Box sx={{display: "flex", gap:"5px",padding:"5px"}}>
       <SignedIn>
     <Button
@@ -129,7 +156,7 @@ const Code_Page = ({submit_to_API,test_cases}) => {
               panel.resize(0);
             }
             
-            //todo: do smething here
+            
             // handleSubmit(onsubmit)();
           }}
         >
