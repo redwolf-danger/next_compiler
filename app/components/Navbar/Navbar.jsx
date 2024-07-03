@@ -38,12 +38,17 @@ const Navbar = () => {
             <li>Compiler</li> */}
             <ListItem><ImageAvatars /> Orka</ListItem>
             <Divider/>
-            {['Home', 'Problems', 'Compiler'].map((text) => (
+            {/* {['Home', 'Problems', 'Compiler'].map((text) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemText primary={text} />
             </ListItemButton>
-          </ListItem>))}
+          </ListItem>)
+          )} */}
+          <li><Link href={"/"}>Home</Link></li>
+          <li><Link href={"/problems"}>Problems</Link></li>
+          <li><Link href={"/editor"}>Compiler</Link></li>
+
           </ul>
           <Divider/>
           
