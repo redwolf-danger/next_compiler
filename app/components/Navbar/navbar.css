@@ -43,7 +43,7 @@
     color: #A7E6FF;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 565px) {
     .mobile_show{
         position:sticky
     }
@@ -51,7 +51,10 @@
         display: none !important;;
     }
   }
-@media only screen and (min-width:500px) {
+  
+
+
+@media only screen and (min-width:565px) {
     .mobile_hidden{
         position: sticky;
     }

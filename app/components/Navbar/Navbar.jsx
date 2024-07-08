@@ -3,7 +3,7 @@ import "./navbar.css";
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { ClerkLoaded, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from "next/link";
 import ImageAvatars from "../Avatar/Avatar" 
 
@@ -13,7 +13,6 @@ import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
-import { Visibility } from "@mui/icons-material";
 import {useTheme} from "next-themes"
 
 
@@ -23,6 +22,7 @@ const Navbar = () => {
   let {theme}=useTheme();
   theme = (theme=="dark") ? "dark" : "light";
 
+    
     const [open, setOpen] = React.useState(false);
     // console.log("Navbar is",theme);
     // const ref = React.useRef(null);
