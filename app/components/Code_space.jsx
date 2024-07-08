@@ -9,7 +9,7 @@ import { useRef } from "react";
 import Question_status from "./Question_status"
 
 const Code_space = ({q_id,submit_to_API,question_details:{question_desc = (<div>QUESTION here ayega</div>),input_stream,output_stream,test_cases_display=<div>test cases ot be displayed here</div>,title},editor}) => {
-  const {theme} = useTheme();
+  let {theme} = useTheme();
   theme = (theme=="light") ? "light" : "dark";
   const panel_div = useRef();
   let screen_width = window.innerWidth;
