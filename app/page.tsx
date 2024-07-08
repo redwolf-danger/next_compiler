@@ -12,7 +12,8 @@ import Footer from './components/Footer/Footer';
 import {useTheme} from "next-themes"
 
 export default function Home() {
-  const {theme} =useTheme();
+  let {theme} = useTheme();
+  theme = (theme=="light") ? "light" : "dark";
   
   return (
     <div className={'main-home-page_'+theme}>

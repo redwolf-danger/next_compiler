@@ -13,6 +13,7 @@ const Editor_section = memo(function Editor_section({handleEditorChange,comment,
   let monaco_ref = useRef(null);
   let editor_ref = useRef(null);
   const {theme} = useTheme();
+  theme = (theme=="light") ? "light" : "dark";
   const defaultLanguage = "python";
 
   if(monaco_ref != null){ 
