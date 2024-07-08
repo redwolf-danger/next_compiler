@@ -603,11 +603,20 @@ video {
 .flex {
   display: flex;
 }
+.hidden {
+  display: none;
+}
 .resize {
   resize: both;
 }
 .border {
   border-width: 1px;
+}
+.italic {
+  font-style: italic;
+}
+.underline {
+  text-decoration-line: underline;
 }
 .blur {
   --tw-blur: blur(8px);

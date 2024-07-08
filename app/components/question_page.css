@@ -1,13 +1,15 @@
-#panel_div{
-    background-color:rgb(250, 250, 250)
-}
-div[data-resize-handle-state="hover"] div{
-    background-color: 	#d6d5d5 !important;
-}
 
-div[data-resize-handle-state="drag"] div{
+/* div[data-resize-handle-state="hover"] .panel_div :hover{
+    background-color: 	#d6d5d5 !important;
+} */
+
+div[data-resize-handle-state="drag"] .panel_div_light_drag{
     background-color: #d6d5d5 !important;
 }
+div[data-resize-handle-state="drag"] .panel_div_dark_drag{
+    background-color: rgba(34, 32, 32, 0.724) !important;
+}
+
 
 /* *{
     cursor:col-resize;

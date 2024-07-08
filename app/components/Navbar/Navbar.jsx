@@ -7,27 +7,45 @@ import React from 'react'
 import Link from "next/link";
 import ImageAvatars from "../Avatar/Avatar" 
 // import * as React from 'react';
+import ThemeSwitch from "../ThemeSwitch"
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
-import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-
+import { Visibility } from "@mui/icons-material";
 
 
 
 // import next from "next";
 const Navbar = () => {
     const [open, setOpen] = React.useState(false);
+    // console.log("page theme is",Navbar.theme);
+    // const ref = React.useRef(null);
+    let color_details = {
+      0:{
+        img:"https://img.icons8.com/ios-glyphs/20/moon-symbol.png",
+        bg_clr:"white",
+        txt_clr:"black"
+      },
+      1:{
+        img:"https://img.icons8.com/ios/20/sun--v1.png",
+        bg_clr:"black",
+        txt_clr:"white"
+      }
+    }
+    
+    const [color,setcolor] = React.useState(0);
 
     const toggleDrawer = (newOpen) => () => {
         setOpen(newOpen);
+    };
+
+    const handlethemechange = ()=>{
+        console.log("theme is now" ,(color == 0 ? "black": "white"));
+        // console.log("ref value is now",ref.current.value);
+        setcolor(!color);
+        //acces data using color_detials etc..
     };
 
     const DrawerList = (
@@ -75,6 +93,9 @@ const Navbar = () => {
           <li>
             <SignedOut><SignInButton /></SignedOut>
             <SignedIn><UserButton /></SignedIn>
+          </li>
+          <li>
+          <span style={{display:"flex",alignItems:"center",justifyContent:"center",height:'100%'}}><ThemeSwitch/></span>
           </li>
         </ul>
       </nav>) 

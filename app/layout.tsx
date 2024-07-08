@@ -4,9 +4,9 @@ import "./globals.css";
 import './navbar.css';
 import { ClerkLoaded, ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 const inter = Inter({ subsets: ["latin"] });
-import Link from "next/link";
+import {Providers} from "./Providers"
 import Navbar from "./components/Navbar/Navbar"
-import ImageAvatars from './components/Avatar/Avatar';
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,36 +18,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body>
-          <header>
-            {/* <nav className="navbar">
-
-              <ul className="logo-section">
-                <li><ImageAvatars /></li>
-                <li>Orka</li>
-              </ul>
-
-              <ul className="items-section">
-                <ClerkLoaded>
-                  <li>
-                    <ul className="navbar-links">
-                      <li><Link href={"/"}>Home</Link></li>
-                      <li><Link href={"/editor"}>Problems</Link></li>
-                      <li>Compiler</li>
-                    </ul>
-                  </li>
-                </ClerkLoaded>
-
-                <li>
-                  <SignedOut><SignInButton /></SignedOut>
-                  <SignedIn><UserButton /></SignedIn>
-                </li>
-              </ul>
-            </nav> */}
+          <Providers>
+          <header>  
             <Navbar/>
+            
           </header>
 
           <main className = "main_div" style={{height:"100%"}}>
@@ -55,7 +34,7 @@ export default function RootLayout({
             {children}
             </ClerkLoaded>
           </main>
-          
+          </Providers>
         </body>
       </html>
     </ClerkProvider>
