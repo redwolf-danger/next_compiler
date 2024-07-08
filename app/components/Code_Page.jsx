@@ -11,12 +11,13 @@ import { useCallback, useRef, useState} from 'react';
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import { SignedIn,SignedOut } from '@clerk/nextjs';
 import BasicPopover from "./BasicPopover";
-
+import {useTheme} from "next-themes"
 
 
 
 
 const Code_Page = ({q_id,submit_to_API,input_stream,output_stream,test_cases_display,editor}) => {
+  const {theme} = useTheme();
   let l = localStorage.getItem(`${q_id}_lang`);
   console.log("data from local storage is ",l,localStorage.getItem(`${q_id}_code_with_${l}`));
       let ref = useRef(null);
@@ -71,15 +72,18 @@ const Code_Page = ({q_id,submit_to_API,input_stream,output_stream,test_cases_dis
           change_run_details({type:"Failure",content:final_ans.content,state:50,res:true});
         }
         else{
+          console.log("final ans.content is "+final_ans.content+"\n")
           let f1 = final_ans.content.replace(/\s/g, '');
           let o1 = output_stream.replace(/\s/g, '');
 
           if(final_ans.type != "Failure" && f1 === o1){
           change_run_details({type:final_ans.type,content:"success all test cases passed",state:50,res:true});
           status = localStorage.getItem(`${q_id}_status`)
-          localStorage.setItem(`${q_id}_status`,(status) ? Math.max(1,status): 1)
+          localStorage.setItem(`${q_id}_status`,2)
           }
           else{
+          status = localStorage.getItem(`${q_id}_status`)
+          localStorage.setItem(`${q_id}_status`,(status) ? Math.max(1,status): 1)
           change_run_details({type:"Failure",content:"test_case_failed expected "+output_stream+" got "+final_ans.content,state:50,res:true});
           }
         }
@@ -110,12 +114,12 @@ const Code_Page = ({q_id,submit_to_API,input_stream,output_stream,test_cases_dis
       setValue("language",language_prev.current);
 
   return (
-    <div style={{padding:"0px", backgroundColor:"whitesmoke"}}>
+    <div style={{padding:"0px", backgroundColor:(theme=="light"?"whitesmoke":"#222831")}}>
     <form onSubmit={handleSubmit(onsubmit)}>
     <Box sx={{display: "flex", gap:"5px",padding:"5px", paddingLeft:"0px" }}>
     <Language_Select q_id={q_id} props_for_select={props_for_select} lang_change={lang_change}/>
-    <Button size="small" variant="text" sx={{color:"#979797", textTransform: 'none',fontWeight:"200",'&:hover':{
-        backgroundColor:"#f1f1f1" 
+    <Button size="small" disableRipple variant="text" sx={{color:"#979797", textTransform: 'none',fontWeight:"200",'&:hover':{
+        backgroundColor:(theme=="light" ? "#f1f1f1":"#344955")
     }}}>Autocomplete</Button>
     </Box>
 
