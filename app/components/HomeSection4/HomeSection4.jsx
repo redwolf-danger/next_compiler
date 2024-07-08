@@ -15,7 +15,7 @@ function HomeSection4(){
                             duration={2}
                             redraw={true}
                             enableScrollSpy={true}
-                        /> 
+                            >{({ countUpRef }) => <span ref={countUpRef} />}</CountUp>
                         </p>
                         <p className="service-para">Programming Languages Supported</p>
                     </div>
@@ -28,7 +28,7 @@ function HomeSection4(){
                             duration={2}
                             redraw={true}
                             enableScrollSpy={true}
-                        />
+                        >{({ countUpRef }) => <span ref={countUpRef} />}</CountUp>
                         </p>
                         <p className="service-para">Unique Account Sign-in</p>
                     </div>
