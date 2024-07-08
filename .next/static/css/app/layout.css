@@ -11,9 +11,17 @@
     filter: drop-shadow(0 0 0.75rem #3ABEF9);
 }
 
+.logo-section_1{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 2%;
+    gap: 0.3rem;
+}
 .logo-section{
     display: flex;
     justify-content: space-around;
+    align-items: center;
     margin-left: 2%;
     gap: 0.3rem;
 }
@@ -37,11 +45,6 @@
 .items-section li:hover{
     color: #A7E6FF;
 }
-
-/* .MuiBox-root{
- background-color: green; 
-}  */
-
 
 @media only screen and (max-width: 500px) {
     .mobile_show{
@@ -603,11 +606,20 @@ video {
 .flex {
   display: flex;
 }
+.hidden {
+  display: none;
+}
 .resize {
   resize: both;
 }
 .border {
   border-width: 1px;
+}
+.italic {
+  font-style: italic;
+}
+.underline {
+  text-decoration-line: underline;
 }
 .blur {
   --tw-blur: blur(8px);

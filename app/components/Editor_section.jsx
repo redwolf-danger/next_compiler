@@ -2,34 +2,32 @@
 import Editor from "@monaco-editor/react";
 import { useRef } from "react";
 import { memo } from "react";
+import {useTheme} from "next-themes"
 
 
 
 const Editor_section = memo(function Editor_section({handleEditorChange,comment,Language}){
+
   // const Editor_main_section = (handleEditorChange,comment,Language)=>{
     console.log("@@@@@@@@@@@ EDITOR RERENDERING @@@@@@@@@@@@@@@@@@");
   let monaco_ref = useRef(null);
   let editor_ref = useRef(null);
+  const {theme} = useTheme();
   const defaultLanguage = "python";
-  // console.log("rendering editor again\n");
-  // console.log("comment in editor is : ",comment);
-  // console.log("lang in editor is ", Language);
 
-  if(monaco_ref != null){
-    // console.log("monaco ref is ",monaco_ref.current);
-    // console.log("editor ref is ",editor_ref.current);
+  if(monaco_ref != null){ 
     (monaco_ref.current)?.editor.setModelLanguage(editor_ref.current.getModel(), Language);
-    (monaco_ref.current)?.editor
+    
   }
 
   function handleEditorDidMount(editor,monaco){
     monaco_ref.current = monaco;
     editor_ref.current = editor;
-    // console.log("added monaco and editor refernces!!!");
   }
   //todo: opens
   handleEditorChange(comment);
   //todo: closes
+  
 
  
 
@@ -48,8 +46,7 @@ const Editor_section = memo(function Editor_section({handleEditorChange,comment,
         scrollBeyondLastLine: false,
         wordWrap:"on"
       }}
-      // theme="vs-dark"
-      
+      theme={"vs-"+theme}
     />
   </div>
   )

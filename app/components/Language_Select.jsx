@@ -8,32 +8,29 @@ import langs from "../constants/langs";
 import { memo } from "react";
 
 const Language_Select = memo(function Language_Select({q_id,props_for_select,lang_change}){
-    console.log("%%%%%%%%%%%%%% Language Rerendering %%%%%%%%%%%%%%%%%%%%%%5")
-    console.log("new language is ",localStorage.getItem(`${q_id}_lang`) || "PYTHON3_8");
+    // console.log("%%%%%%%%%%%%%% Language Rerendering %%%%%%%%%%%%%%%%%%%%%%5")
+    // console.log("new language is ",localStorage.getItem(`${q_id}_lang`) || "PYTHON3_8");
     let [code_language, set_code_language] = useState( localStorage.getItem(`${q_id}_lang`) || "PYTHON3_8");
     let sel = useRef(null);
-    // console.log(code_language;
 
     function handle_lang_change(event){
-        // console.log("prev language is ", code_language)
-        // console.log("setting language as ", event.target.value)
+        
         set_code_language(()=>event.target.value)
         lang_change(event.target.value);
-        // console.log('event is ', event)
+     
       }
       useEffect(() => {
-        console.log("changin language to ",localStorage.getItem(`${q_id}_lang`) || "PYTHON3_8");
+        // console.log("changin language to ",localStorage.getItem(`${q_id}_lang`) || "PYTHON3_8");
         set_code_language(localStorage.getItem(`${q_id}_lang`) || "PYTHON3_8");
         lang_change(localStorage.getItem(`${q_id}_lang`) || "PYTHON3_8");
       }, [])
       
-    // lang_change("PYTHON3_8")
+ 
   return (
     <Box >
-      {/* sx={{height: 40}} */}
+ 
     <FormControl size = "small">
-      {/* <InputLabel id="demo-simple-select-label">Language</InputLabel> */}
-      {/* <ClickAwayListener></ClickAwayListener> */}
+
       <Select 
        sx={{height: 30,width: 130,color:"grey"}}
       {...props_for_select}
@@ -52,11 +49,7 @@ const Language_Select = memo(function Language_Select({q_id,props_for_select,lan
           }}
 
         onChange={
-          // (event)=>{
           handle_lang_change
-          // (event)
-          // console.log('event is ', event)
-        // }
       }
       >
       {
