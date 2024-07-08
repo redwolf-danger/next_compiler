@@ -5,14 +5,17 @@ function HomeSection2(){
     return(
         <div className='second-heading'> 
         <span className='second-number'>
+          {
           <CountUp 
               start={0}
               end={16}
               duration={2}
               redraw={true}
               enableScrollSpy={true}
-          /> 
-
+              scrollSpyDelay={100}>
+            {({ countUpRef }) => <span ref={countUpRef} />}
+          </CountUp>
+          }
         </span>
         Programming Languages Supported
       </div>

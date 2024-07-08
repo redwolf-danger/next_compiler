@@ -594,9 +594,6 @@ video {
     max-width: 1536px;
   }
 }
-.relative {
-  position: relative;
-}
 .sticky {
   position: sticky;
 }
@@ -614,12 +611,6 @@ video {
 }
 .border {
   border-width: 1px;
-}
-.italic {
-  font-style: italic;
-}
-.underline {
-  text-decoration-line: underline;
 }
 .blur {
   --tw-blur: blur(8px);
