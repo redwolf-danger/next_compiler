@@ -13,15 +13,19 @@ import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
+import { Visibility } from "@mui/icons-material";
 import {useTheme} from "next-themes"
 
 
 
 // import next from "next";
 const Navbar = () => {
-  const {theme}=useTheme();
-    const [open, setOpen] = React.useState(false);
+  let {theme}=useTheme();
+  theme = (theme=="dark") ? "dark" : "light";
 
+    const [open, setOpen] = React.useState(false);
+    // console.log("Navbar is",theme);
+    // const ref = React.useRef(null);
     let color_details = {
       light:{
         img:"https://img.icons8.com/ios-glyphs/20/moon-symbol.png",
@@ -35,16 +39,34 @@ const Navbar = () => {
       }
     }
 
+    
+    // const [color,setcolor] = React.useState(0);
+
     const toggleDrawer = (newOpen) => () => {
         setOpen(newOpen);
     };
 
+    // console.log("box properties are ",{bgcolor:color_details[theme].bg_clr,color:color_details[theme].txt_clr})
+
+    const bgcolor = (color_details[theme].bg_clr);
+    const color = (color_details[theme].txt_clr);
+
     const DrawerList = (
-        <Box sx={{width: 300,bgcolor:color_details[theme].bg_clr,color:color_details[theme].txt_clr,height:1}} role="presentation" onClick={toggleDrawer(false)}>
+        <Box sx={{width: 300,bgcolor,color,height:1}} role="presentation" onClick={()=>{toggleDrawer(false)}}>
+          {/* ,bgcolor:(color_details[theme].bg_clr),color:(color_details[theme].txt_clr) */}
           <ul className="mobiledrawer">
-       
+            {/* <li>Home</li>
+            <li>Problems</li>
+            <li>Compiler</li> */}
             <ListItem><ImageAvatars />Orka</ListItem>
             <Divider/>
+            {/* {['Home', 'Problems', 'Compiler'].map((text) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>)
+          )} */}
           <li><Link href={"/"}>Home</Link></li>
           <li><Link href={"/problems"}>Problems</Link></li>
           <li><Link href={"/editor"}>Compiler</Link></li>
@@ -112,3 +134,18 @@ const Navbar = () => {
 }
 
 export default Navbar
+
+
+
+// export default function TemporaryDrawer() {
+  
+
+  
+
+//   return (
+//     <div>
+//       <Button onClick={toggleDrawer(true)}>Open drawer</Button>
+//       
+//     </div>
+//   );
+// }
