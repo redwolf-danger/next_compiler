@@ -19,7 +19,7 @@ import {useTheme} from "next-themes"
 const Code_Page = ({q_id,submit_to_API,input_stream,output_stream,test_cases_display,editor}) => {
   const {theme} = useTheme();
   let l = localStorage.getItem(`${q_id}_lang`);
-  console.log("data from local storage is ",l,localStorage.getItem(`${q_id}_code_with_${l}`));
+  // console.log("data from local storage is ",l,localStorage.getItem(`${q_id}_code_with_${l}`));
       let ref = useRef(null);
       let language_prev = useRef(localStorage.getItem(`${q_id}_lang`) || "PYTHON3_8");
      
@@ -37,18 +37,18 @@ const Code_Page = ({q_id,submit_to_API,input_stream,output_stream,test_cases_dis
           code_area: "",
         },
       });
-      console.log("^^^^^^^^^^^^^^^^^^rendering code_page^^^^^^^^^^^^^^^^^^^^^^^^^");
-      console.log("language is ",localStorage.getItem(`${q_id}_lang`) || "PYTHON3_8");
+      // console.log("^^^^^^^^^^^^^^^^^^rendering code_page^^^^^^^^^^^^^^^^^^^^^^^^^");
+      // console.log("language is ",localStorage.getItem(`${q_id}_lang`) || "PYTHON3_8");
       const [lang_details,setlang_details] = useState({...pre_written_code[language_prev.current]});
       // const [lang_details,setlang_details] = useState({...pre_written_code["PYTHON3_8"]})
   
       const [run_details, change_run_details] = useState({type:"NA",content:"RUN CODE FIRST TO SEE THE RESULTS",state:0,res:false}); 
-      console.log("run details is :",run_details);
+      // console.log("run details is :",run_details);
 
 
 
       const onsubmit = async (data) => {
-        console.log(data);
+        // console.log(data);
 
         localStorage.setItem(`${q_id}_lang`,data.language)
         localStorage.setItem(`${q_id}_code_with_${data.language}`,data.code_area);
@@ -163,7 +163,7 @@ const Code_Page = ({q_id,submit_to_API,input_stream,output_stream,test_cases_dis
 
             let panel = ref.current;
             let size = panel.getSize();
-            console.log("######PANEL SIZE IS#######: ",size);
+            // console.log("######PANEL SIZE IS#######: ",size);
             if(size == 0){
               panel.resize(50);
             }

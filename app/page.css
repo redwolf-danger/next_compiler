@@ -1,8 +1,15 @@
 
-.main-home-page{
+.main-home-page_light{
     display: flex;
     align-items: center;
     flex-direction: column;
     background: rgb(255,255,255);
     background: linear-gradient(153deg, rgba(255,255,255,1) 0%, rgba(235,244,246,1) 0%, rgba(8,131,149,1) 100%);
+}
+.main-home-page_dark{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: rgb(255,255,255);
+    background: linear-gradient(153deg, rgb(126, 205, 232) 0%, rgb(118, 193, 204) 0%, rgb(94, 138, 147) 100%);
 }

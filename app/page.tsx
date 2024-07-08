@@ -9,12 +9,13 @@ import HomeSection3 from './components/HomeSection3/HomeSection3'
 import HomeSection4 from './components/HomeSection4/HomeSection4';
 import Slider from './components/Slider/Slider'
 import Footer from './components/Footer/Footer';
-
+import {useTheme} from "next-themes"
 
 export default function Home() {
+  const {theme} =useTheme();
   
   return (
-    <div className='main-home-page'>
+    <div className={'main-home-page_'+theme}>
       
 
       <HomeSection1 />

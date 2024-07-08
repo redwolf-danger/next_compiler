@@ -28,7 +28,6 @@ export default function RootLayout({
             <Navbar/>
             
           </header>
-
           <main className = "main_div" style={{height:"100%"}}>
             <ClerkLoaded>
             {children}

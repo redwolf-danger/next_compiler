@@ -14,19 +14,8 @@ const Editor_section = memo(function Editor_section({handleEditorChange,comment,
   let editor_ref = useRef(null);
   const {theme} = useTheme();
   const defaultLanguage = "python";
-  // console.log("rendering editor again\n");
-  // console.log("comment in editor is : ",comment);
-  // console.log("lang in editor is ", Language);
-  // const [editor_theme,set_editor_theme] = useState("vs-light")
-  if(monaco_ref != null){
-    // if(theme == "dark"){
-      // console.log("say the theme is ",theme);
-      
-      
-    // };
-    // console.log("monaco ref is ",monaco_ref.current);
-    // console.log("editor ref is ",editor_ref.current);
-    
+
+  if(monaco_ref != null){ 
     (monaco_ref.current)?.editor.setModelLanguage(editor_ref.current.getModel(), Language);
     
   }
@@ -34,19 +23,6 @@ const Editor_section = memo(function Editor_section({handleEditorChange,comment,
   function handleEditorDidMount(editor,monaco){
     monaco_ref.current = monaco;
     editor_ref.current = editor;
-    // (monaco_ref.current)?.editor.defineTheme("editor_dark_theme",{
-    //   base: 'vs', 
-    //   inherit: true,
-    //   rules: [
-    //     { token: 'custom-info', foreground: 'a3a7a9', background: 'ffffff' },
-    //     { token: 'custom-error', foreground: 'ee4444' },
-    //     { token: 'custom-notice', foreground: '1055af' },
-    //     { token: 'custom-date', foreground: '20aa20' },
-    //   ]
-    // });
-    // editor.defineTheme("editor_dark_theme",editor_dark_theme);
-    // editor_ref.setTheme("dark");
-    // console.log("added monaco and editor refernces!!!");
   }
   //todo: opens
   handleEditorChange(comment);

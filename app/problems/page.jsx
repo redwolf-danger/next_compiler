@@ -10,11 +10,13 @@ const Page = () => {
   return (
     <div>
       {/* <div>hello wolrld Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores veniam accusamus eaque doloribus rem nisi deleniti quasi alias, cum ullam ipsa quaerat et!</div> */}
-      <div style={{display:"flex",justifyContent:"center",alignItems:"center",padding:"5px"}}><h1 style={{ fontSize:"2.5rem"}}><b>PROBLEMS</b></h1></div>
-      <ul>
+      <div style={{display:"flex",justifyContent:"center",alignItems:"center",padding:"10px"}}><h1 style={{ fontSize:"2.5rem"}}><b>PROBLEMS</b></h1></div>
+      <ul style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"20px",justifyContent:"flex-start",height:"75vh"}}>
+        {/*  */}
+        {/* ,flexDirection:"column",alignItems:"center",*/}
       {
         Object.keys(question_list).map((value)=>{
-          return <li key={value}><Question_status id={value}><Link href={`./problems/${value}`}>{question_list[value].title}</Link></Question_status></li>
+          return <li style={{width:"60vw"}} key={value}><Question_status id={value}><Link href={`./problems/${value}`}>{question_list[value].title}</Link></Question_status></li>
         })
       }
       </ul>
