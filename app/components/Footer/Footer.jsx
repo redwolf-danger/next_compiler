@@ -12,7 +12,7 @@ function Footer(){
         </div>
 
         <div className="col col2">
-            <p>Adavita Soni</p>
+            <p>Advaita Soni</p>
             <div className="social">
                 <a href="https://codepen.io/Juxtopposed" target="_blank" className="link"><img src="https://assets.codepen.io/9051928/codepen_1.png" alt="" /></a>
                 <a href="https://twitter.com/juxtopposed" target="_blank" className="link"><img src="https://assets.codepen.io/9051928/x.png" alt="" /></a>
