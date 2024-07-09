@@ -12,7 +12,7 @@ const Editor_section = memo(function Editor_section({handleEditorChange,comment,
     console.log("@@@@@@@@@@@ EDITOR RERENDERING @@@@@@@@@@@@@@@@@@");
   let monaco_ref = useRef(null);
   let editor_ref = useRef(null);
-  const {theme} = useTheme();
+  let {theme} = useTheme();
   theme = (theme=="light") ? "light" : "dark";
   const defaultLanguage = "python";
 
