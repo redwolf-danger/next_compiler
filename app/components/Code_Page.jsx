@@ -17,7 +17,7 @@ import {useTheme} from "next-themes"
 
 
 const Code_Page = ({q_id,submit_to_API,input_stream,output_stream,test_cases_display,editor}) => {
-  const {theme} = useTheme();
+ let {theme} = useTheme();
   theme = (theme=="light") ? "light" : "dark";
   let l = localStorage.getItem(`${q_id}_lang`);
   // console.log("data from local storage is ",l,localStorage.getItem(`${q_id}_code_with_${l}`));
