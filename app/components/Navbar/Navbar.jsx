@@ -20,11 +20,13 @@ import {useTheme} from "next-themes"
 // import next from "next";
 const Navbar = () => {
   let {theme}=useTheme();
-  theme = (theme=="dark") ? "dark" : "light";
+  
 
     
     const [open, setOpen] = React.useState(false);
-    // console.log("Navbar is",theme);
+    console.log("Navbar is",theme);
+    theme = (theme=="light") ? "light" : "dark";
+    console.log("Navbar is",theme);
     // const ref = React.useRef(null);
     let color_details = {
       light:{

@@ -10,8 +10,8 @@ const Question_status = ({id,children}) => {
     let {theme} = useTheme();
 
     let icon;
-    let color = theme=="dark"?"white":"black";
-    let theme_bg_color = (theme=="dark" ? "#344955":"#FFF8F3")
+    let color = theme=="light"?"black":"white";
+    let theme_bg_color = (theme=="light" ? "#FFF8F3" :"#344955")
 
     if(status == 1){
         icon= <FiTarget/>   
