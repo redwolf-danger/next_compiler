@@ -29,9 +29,9 @@ export default function RootLayout({
             
           </header>
           <main className = "main_div" style={{height:"100%"}}>
-            <ClerkLoaded>
+{/*             <ClerkLoaded> */}
             {children}
-            </ClerkLoaded>
+{/*             </ClerkLoaded> */}
           </main>
           </Providers>
         </body>
